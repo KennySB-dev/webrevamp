@@ -45,7 +45,7 @@
   </header>
 
   <main>
-    <section class="hero bd-grid" id="home">
+    <section class="hero hero--centered bd-grid" id="home">
       <div class="hero-content">
         <p class="hero-eyebrow">Hey there <span class="wave">👋</span></p>
         <h1 class="hero-title">
@@ -55,19 +55,12 @@
           <span class="text-primary text-primary--bold">Frontend developer</span> + more.
           I build beautiful, functional interfaces while writing clean and efficient code.
         </p>
+
         <div class="hero-cta">
-          <a href="work.html" class="primary-button primary-button--hero">View work</a>
-          <div class="hero-social">
-            <a href="https://discord.com/users/681811851428102145" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-              <i class="bx bxl-discord-alt"></i>
-            </a>
-            <a href="https://github.com/KennySB-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <i class="bx bxl-github"></i>
-            </a>
-          </div>
+          <a href="work.html" class="primary-button">View work</a>
         </div>
 
-        <!-- Live Discord status via Lanyard -->
+        <!-- Live Discord status -->
         <div id="status-badge" class="status-badge" aria-live="polite">
           <div class="status-card">
             <div class="status-header">
@@ -82,19 +75,26 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="hero-visual">
-        <img src="assets/images/kenny-profile.png" alt="Kenny Bugeja" class="hero__img" />
+
+        <!-- GitHub stats -->
+        <div id="github-stats" class="github-stats" aria-live="polite">
+          <div class="gh-stat"><span class="gh-num">—</span><span class="gh-label">Repos</span></div>
+          <div class="gh-stat"><span class="gh-num">—</span><span class="gh-label">Followers</span></div>
+          <div class="gh-stat"><span class="gh-num">—</span><span class="gh-label">Following</span></div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer footer--compact">
     <div class="footer-content bd-grid">
-      <p class="footer-logo">Kenny<span>DEV</span></p>
-      <div class="footer__social">
-        <a href="https://discord.com/users/681811851428102145" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="bx bxl-discord-alt"></i></a>
-        <a href="https://github.com/KennySB-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+      <div class="footer-socials">
+        <a href="https://discord.com/users/681811851428102145" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="social-btn social-btn--discord">
+          <i class="bx bxl-discord-alt"></i>
+        </a>
+        <a href="https://github.com/KennySB-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-btn social-btn--github">
+          <i class="bx bxl-github"></i>
+        </a>
       </div>
       <p class="footer-description">Made with 🧡 by Kenny</p>
     </div>

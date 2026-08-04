@@ -1,5 +1,6 @@
 /* KennyDEV — shared scripts */
 const DISCORD_ID = "681811851428102145";
+const GITHUB_USER = "KennySB-dev";
 
 /* ---- Theme ---- */
 const $themeToggle = document.getElementById("theme-toggle");
@@ -13,7 +14,6 @@ if ($themeToggle) {
   $themeToggle.addEventListener("change", (e) => {
     setTheme(e.target.checked ? "dark" : "light");
   });
-
   const savedTheme = localStorage.getItem("theme") || "light";
   setTheme(savedTheme);
   $themeToggle.checked = savedTheme === "dark";
@@ -30,10 +30,7 @@ if ($menuBtn && $navigator) {
     $menuBtn.setAttribute("aria-expanded", open);
     document.body.classList.toggle("no-scroll", open);
   };
-
   $menuBtn.addEventListener("click", toggleMenu);
-
-  // Close on link click (mobile)
   $navigator.querySelectorAll(".nav__link").forEach((link) => {
     link.addEventListener("click", () => {
       if ($menuBtn.classList.contains("open")) toggleMenu();
@@ -41,22 +38,29 @@ if ($menuBtn && $navigator) {
   });
 }
 
-/* ---- Active nav highlight ---- */
-const path = window.location.pathname.replace(/\/$/, "") || "/";
-let page = path.split("/").pop() || "index.html";
-  if (page === "" || page === "kennysb.xyz" || !page.includes(".")) page = "index.html";
-document.querySelectorAll(".nav__link").forEach((link) => {
-  const href = link.getAttribute("href");
-  if (
-    href === page ||
-    (page === "index.html" && (href === "/" || href === "index.html")) ||
-    (page === "" && href === "index.html")
-  ) {
-    link.classList.add("active");
-  }
-});
+/* ---- Active nav ---- */
+(() => {
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
+  let page = path.split("/").pop() || "index.html";
+  if (page === "" || !page.includes(".")) page = "index.html";
+  document.querySelectorAll(".nav__link").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === page || (page === "index.html" && (href === "index.html" || href === "/"))) {
+      link.classList.add("active");
+    }
+  });
+})();
 
-/* ---- Lanyard status badge ---- */
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+/* ---- Lanyard status ---- */
 async function fetchStatus() {
   const statusEl = document.getElementById("status-badge");
   if (!statusEl) return;
@@ -67,27 +71,14 @@ async function fetchStatus() {
     if (!json.success) throw new Error("Lanyard failed");
 
     const data = json.data;
-    const status = data.discord_status; // online | idle | dnd | offline
+    const status = data.discord_status;
     const activities = data.activities || [];
     const spotify = data.spotify;
-    const custom = activities.find((a) => a.type === 4); // custom status
-    const game = activities.find((a) => a.type === 0); // playing
-    const listening = activities.find((a) => a.type === 2); // listening (Spotify etc)
+    const custom = activities.find((a) => a.type === 4);
+    const game = activities.find((a) => a.type === 0);
 
-    // Status dot color
-    const colors = {
-      online: "#23a55a",
-      idle: "#f0b232",
-      dnd: "#f23f43",
-      offline: "#80848e",
-    };
-
-    const statusLabel = {
-      online: "Online",
-      idle: "Idle",
-      dnd: "Do Not Disturb",
-      offline: "Offline",
-    };
+    const colors = { online: "#23a55a", idle: "#f0b232", dnd: "#f23f43", offline: "#80848e" };
+    const statusLabel = { online: "Online", idle: "Idle", dnd: "Do Not Disturb", offline: "Offline" };
 
     let activityHtml = "";
     let activityLabel = "Not doing anything";
@@ -96,7 +87,7 @@ async function fetchStatus() {
       activityLabel = `Listening to ${spotify.song}`;
       activityHtml = `
         <div class="status-activity">
-          <img src="${spotify.album_art_url}" alt="" class="status-album" width="48" height="48" />
+          <img src="${spotify.album_art_url}" alt="" class="status-album" width="42" height="42" />
           <div class="status-activity-text">
             <span class="status-activity-type"><i class="bx bx-music"></i> Listening</span>
             <strong>${escapeHtml(spotify.song)}</strong>
@@ -104,7 +95,6 @@ async function fetchStatus() {
           </div>
         </div>`;
     } else if (game) {
-      activityLabel = `Playing ${game.name}`;
       activityHtml = `
         <div class="status-activity">
           <div class="status-activity-icon"><i class="bx bx-game"></i></div>
@@ -114,18 +104,7 @@ async function fetchStatus() {
             ${game.details ? `<span class="status-muted">${escapeHtml(game.details)}</span>` : ""}
           </div>
         </div>`;
-    } else if (listening) {
-      activityLabel = listening.name || "Listening";
-      activityHtml = `
-        <div class="status-activity">
-          <div class="status-activity-icon"><i class="bx bx-music"></i></div>
-          <div class="status-activity-text">
-            <span class="status-activity-type">Listening</span>
-            <strong>${escapeHtml(listening.name || "Something")}</strong>
-          </div>
-        </div>`;
     } else if (custom && custom.state) {
-      activityLabel = custom.state;
       activityHtml = `
         <div class="status-activity">
           <div class="status-activity-text">
@@ -142,7 +121,7 @@ async function fetchStatus() {
       <div class="status-card">
         <div class="status-header">
           <div class="status-avatar-wrap">
-            <img src="${avatar}" alt="Kenny" class="status-avatar" width="48" height="48" />
+            <img src="${avatar}" alt="" class="status-avatar" width="44" height="44" />
             <span class="status-dot" style="background:${colors[status] || colors.offline}" title="${statusLabel[status]}"></span>
           </div>
           <div class="status-info">
@@ -152,15 +131,14 @@ async function fetchStatus() {
         </div>
         ${activityHtml || `<p class="status-idle-msg">${escapeHtml(activityLabel)}</p>`}
       </div>`;
-
     statusEl.classList.add("loaded");
   } catch (err) {
     console.warn("Status fetch failed:", err);
     statusEl.innerHTML = `
-      <div class="status-card status-fallback">
+      <div class="status-card">
         <div class="status-header">
           <div class="status-avatar-wrap">
-            <img src="assets/images/kenny-profile.png" alt="Kenny" class="status-avatar" width="48" height="48" />
+            <img src="assets/images/kenny-profile.png" alt="" class="status-avatar" width="44" height="44" />
             <span class="status-dot" style="background:#80848e"></span>
           </div>
           <div class="status-info">
@@ -173,16 +151,34 @@ async function fetchStatus() {
   }
 }
 
-function escapeHtml(str) {
-  if (!str) return "";
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+/* ---- GitHub stats ---- */
+async function fetchGitHubStats() {
+  const el = document.getElementById("github-stats");
+  if (!el) return;
+
+  try {
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}`);
+    if (!res.ok) throw new Error("GitHub API error");
+    const data = await res.json();
+
+    el.innerHTML = `
+      <div class="gh-stat">
+        <span class="gh-num">${data.public_repos ?? "—"}</span>
+        <span class="gh-label">Repos</span>
+      </div>
+      <div class="gh-stat">
+        <span class="gh-num">${data.followers ?? "—"}</span>
+        <span class="gh-label">Followers</span>
+      </div>
+      <div class="gh-stat">
+        <span class="gh-num">${data.following ?? "—"}</span>
+        <span class="gh-label">Following</span>
+      </div>`;
+  } catch (err) {
+    console.warn("GitHub stats failed:", err);
+  }
 }
 
-// Init status on pages that have the badge
 fetchStatus();
-// Refresh every 30s
+fetchGitHubStats();
 setInterval(fetchStatus, 30000);
