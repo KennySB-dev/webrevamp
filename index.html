@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenny | DEV</title>
+  <meta property="og:title" content="Hey! I'm Kenny 👋" />
+  <meta property="og:site_name" content="KennyDEV" />
+  <meta property="og:url" content="https://kenny.is-a.dev" />
+  <meta property="og:description" content="Frontend developer & more. Building clean, functional interfaces." />
+  <meta property="og:image" content="https://kenny.is-a.dev/assets/images/kenny-profile.png" />
+  <meta property="og:image:secure_url" content="https://kenny.is-a.dev/assets/images/kenny-profile.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Kenny Bugeja" />
+  <meta name="theme-color" content="#0571f8" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="nav bd-grid">
+      <a href="#home" class="header__logo" aria-label="Home">
+        Kenny<span class="header__logo--light">DEV</span>
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__actions">
+        <label class="theme-switcher" title="Toggle theme">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="slider"></span>
+        </label>
+
+        <button class="menu-btn" aria-label="Navigation menu" aria-expanded="false">
+          <span class="menu-btn__icon"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero bd-grid" id="home">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Hey there <span class="wave">👋</span></p>
+        <h1 class="hero-title">
+          I’m <span class="text-primary">Kenny Bugeja</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="text-primary text-primary--bold">Frontend developer</span> + more.
+          I build beautiful, functional interfaces while writing clean and efficient code.
+        </p>
+        <div class="hero-cta">
+          <a href="#work" class="primary-button primary-button--hero">View work</a>
+          <div class="hero-social">
+            <a href="https://discord.com/users/681811851428102145" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+              <i class="bx bxl-discord-alt"></i>
+            </a>
+            <a href="https://github.com/KennySB-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="bx bxl-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/images/kenny-profile.png" alt="Kenny Bugeja" class="hero__img" />
+      </div>
+    </section>
+
+    <!--===== Projects =====-->
+    <section class="section" id="work">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-lead">A few things I’ve built and shipped.</p>
+
+      <div class="project-container bd-grid">
+        <article class="project-card">
+          <div class="project-picture">
+            <img src="./assets/images/zync-web.png" alt="Zync Discord Bot dashboard" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-card__title">Zync Discord Bot</h3>
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>HTML/CSS</span>
+              <span>Discord</span>
+            </div>
+            <p class="project-description__text">
+              Tired of servers needing a dozen bots for basic tasks, I built one bot that covers moderation, utilities, fun commands and more — all in one place.
+            </p>
+            <div class="project-links">
+              <a href="https://zync.kennysb.xyz" target="_blank" rel="noopener noreferrer" class="project-links__anchor">
+                <i class="bx bx-link-external"></i> Site
+              </a>
+              <a href="https://github.com/KennySB-dev/zync" target="_blank" rel="noopener noreferrer" class="project-links__anchor">
+                <i class="bx bxl-github"></i> Repo
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!--===== Skills =====-->
+    <section class="section" id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-lead">
+        Tools I use to craft responsive, interactive interfaces. Currently diving deeper into backend and modern JS frameworks.
+      </p>
+
+      <div class="skills-grid bd-grid">
+        <div class="skill-chip">
+          <i class="bx bxl-html5"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bxl-css3"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bxl-javascript"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bxl-typescript"></i>
+          <span>TypeScript</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bxl-react"></i>
+          <span>React</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bxl-nodejs"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bxl-python"></i>
+          <span>Python</span>
+        </div>
+        <div class="skill-chip">
+          <i class="bx bx-code-alt"></i>
+          <span>Next.js</span>
+        </div>
+      </div>
+    </section>
+
+    <!--===== About =====-->
+    <section class="section" id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about__container bd-grid">
+        <div class="about-card">
+          <h3 class="about__subtitle">I am Kenny</h3>
+          <p class="about__text">
+            Self-taught developer who builds a bit of everything — from Discord bots to polished frontends.
+            I care about clean code, good UX, and shipping things that actually work.
+          </p>
+          <p class="about__text">
+            Want to chat? Hit me up on Discord using the links above or in the footer.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--===== Footer =====-->
+  <footer class="footer" id="footer">
+    <div class="footer-content bd-grid">
+      <p class="footer-logo">Kenny<span>DEV</span></p>
+      <div class="footer__social">
+        <a href="https://discord.com/users/681811851428102145" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+          <i class="bx bxl-discord-alt"></i>
+        </a>
+        <a href="https://github.com/KennySB-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="bx bxl-github"></i>
+        </a>
+      </div>
+      <p class="footer-description">Made with 🧡 by Kenny</p>
+    </div>
+  </footer>
+</body>
+</html>
