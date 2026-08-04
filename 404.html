@@ -1,11 +1,33 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>404 Not Found</title>
-    <meta http-equiv="refresh" content="5;url=https://kennysb.xyz">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 · KennyDEV</title>
+  <meta http-equiv="refresh" content="5;url=/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <style>
+    .notfound {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.2rem;
+      padding: 2rem;
+    }
+    .notfound h1 { font-size: 4.8rem; color: var(--primary); margin: 0; }
+    .notfound p { color: var(--text-muted); max-width: 36ch; }
+  </style>
 </head>
 <body>
-    <h1>Page Discontinued</h1>
-    <p>We’re sorry, but the page you’re looking for has been discontinued or moved.</p>
-    <p>You will be redirected to our new appropriate page in 5 seconds. If you are not redirected automatically, <a href="https://kennysb.xyz">click here</a>.</p>
+  <main class="notfound bd-grid">
+    <h1>404</h1>
+    <p>This page doesn’t exist or has been moved.</p>
+    <a href="/" class="primary-button">Back home</a>
+  </main>
 </body>
 </html>

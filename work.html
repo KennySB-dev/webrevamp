@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenny | DEV</title>
-  <meta property="og:title" content="Hey! I'm Kenny 👋" />
-  <meta property="og:site_name" content="KennyDEV" />
-  <meta property="og:url" content="https://kenny.is-a.dev" />
-  <meta property="og:description" content="Frontend developer & more. Building clean, functional interfaces." />
-  <meta property="og:image" content="https://kenny.is-a.dev/assets/images/kenny-profile.png" />
+  <title>Work · KennyDEV</title>
+  <meta name="description" content="Projects by Kenny Bugeja" />
   <meta name="theme-color" content="#0571f8" />
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,46 +41,37 @@
   </header>
 
   <main>
-    <section class="hero bd-grid" id="home">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Hey there <span class="wave">👋</span></p>
-        <h1 class="hero-title">
-          I’m <span class="text-primary">Kenny Bugeja</span>
-        </h1>
-        <p class="hero-subtitle">
-          <span class="text-primary text-primary--bold">Frontend developer</span> + more.
-          I build beautiful, functional interfaces while writing clean and efficient code.
-        </p>
-        <div class="hero-cta">
-          <a href="work.html" class="primary-button primary-button--hero">View work</a>
-          <div class="hero-social">
-            <a href="https://discord.com/users/681811851428102145" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-              <i class="bx bxl-discord-alt"></i>
-            </a>
-            <a href="https://github.com/KennySB-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <i class="bx bxl-github"></i>
-            </a>
-          </div>
-        </div>
+    <div class="page-hero bd-grid">
+      <h1 class="section-title">Projects</h1>
+      <p class="section-lead">A few things I’ve built and shipped.</p>
+    </div>
 
-        <!-- Live Discord status via Lanyard -->
-        <div id="status-badge" class="status-badge" aria-live="polite">
-          <div class="status-card">
-            <div class="status-header">
-              <div class="status-avatar-wrap">
-                <div class="status-avatar" style="background:var(--border)"></div>
-                <span class="status-dot" style="background:#80848e"></span>
-              </div>
-              <div class="status-info">
-                <span class="status-name">Loading…</span>
-                <span class="status-presence">Fetching status</span>
-              </div>
+    <section class="section" style="padding-top: 2rem;">
+      <div class="project-container bd-grid">
+        <article class="project-card">
+          <div class="project-picture">
+            <img src="./assets/images/zync-web.png" alt="Zync Discord Bot dashboard" />
+          </div>
+          <div class="project-body">
+            <h2 class="project-card__title">Zync Discord Bot</h2>
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>HTML/CSS</span>
+              <span>Discord</span>
+            </div>
+            <p class="project-description__text">
+              Tired of servers needing a dozen bots for basic tasks, I built one bot that covers moderation, utilities, fun commands and more — all in one place.
+            </p>
+            <div class="project-links">
+              <a href="https://zync.kennysb.xyz" target="_blank" rel="noopener noreferrer" class="project-links__anchor">
+                <i class="bx bx-link-external"></i> Site
+              </a>
+              <a href="https://github.com/KennySB-dev/zync" target="_blank" rel="noopener noreferrer" class="project-links__anchor">
+                <i class="bx bxl-github"></i> Repo
+              </a>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <img src="assets/images/kenny-profile.png" alt="Kenny Bugeja" class="hero__img" />
+        </article>
       </div>
     </section>
   </main>
