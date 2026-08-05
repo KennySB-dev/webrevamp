@@ -292,12 +292,13 @@ main {
 
 /* ========== STATUS BADGE ========== */
 .status-badge {
+  margin-top: 0.4rem;
   width: 100%;
   max-width: 320px;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.35s ease, transform 0.35s ease;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.8rem;
 }
 .status-badge.loaded { opacity: 1; transform: translateY(0); }
 
@@ -374,7 +375,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.8rem 1.6rem;
-  margin-top: 0.4rem;
+  margin: 0.4rem 0 1.6rem;
 }
 
 .gh-stat {
@@ -690,7 +691,7 @@ main {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.4rem;
 }
 
 .hero-social a {
