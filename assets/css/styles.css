@@ -659,3 +659,69 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Secondary page buttons + hero socials */
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition), transform var(--transition);
+}
+.secondary-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-soft);
+  transform: translateY(-1px);
+}
+
+.hero-cta {
+  margin-bottom: 1.4rem;
+}
+
+.hero-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 2.1rem;
+  transition: all var(--transition);
+}
+
+.hero-social a:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 400px) {
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+    max-width: 22rem;
+  }
+  .hero-cta .primary-button,
+  .hero-cta .secondary-button {
+    width: 100%;
+  }
+}
